@@ -123,7 +123,7 @@ func Demodulate(reader sdr.Reader, cfg DemodulatorConfig) (*Demodulator, error) 
 		return nil, err
 	}
 
-	reader, err = stream.DecimateReader(reader, cfg.Downsample)
+	reader, err = stream.DownsampleReader(reader, cfg.Downsample)
 	if err != nil {
 		return nil, err
 	}
