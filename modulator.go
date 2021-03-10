@@ -83,7 +83,7 @@ func NewModulator(cfg ModulatorConfig) (*Modulator, error) {
 
 	return &Modulator{
 		Config:       cfg,
-		iqSampleRate: uint32(iqSampleRate),
+		iqSampleRate: uint(iqSampleRate),
 		iqBuffer:     make(sdr.SamplesC64, cfg.IqBufferLength),
 	}, nil
 }
@@ -94,7 +94,7 @@ type Modulator struct {
 	Config ModulatorConfig
 
 	// iqSampleRate is the final samples per second of the samples written
-	iqSampleRate uint32
+	iqSampleRate uint
 
 	// iqBuffer will be used when generating data to send to the Writer
 	iqBuffer sdr.SamplesC64
@@ -106,7 +106,7 @@ type Modulator struct {
 }
 
 // SampleRate implements the sdr.Writer interface.
-func (m *Modulator) SampleRate() uint32 {
+func (m *Modulator) SampleRate() uint {
 	return m.iqSampleRate
 }
 

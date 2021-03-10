@@ -8,7 +8,7 @@ import (
 // Filter will design a super hacky filter in frequency space.
 func Filter(
 	dst []complex64,
-	sampleRate uint32,
+	sampleRate uint,
 	order fft.Order,
 	cf rf.Hz,
 	dv rf.Hz,
