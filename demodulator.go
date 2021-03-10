@@ -59,7 +59,7 @@ type DemodulatorConfig struct {
 
 	// Downsample will define rate to downsample the samples to bring it to
 	// a sensible audio sample rate.
-	Downsample int
+	Downsample uint
 }
 
 // Demodulator contains info about
