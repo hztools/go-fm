@@ -118,7 +118,7 @@ func Demodulate(reader sdr.Reader, cfg DemodulatorConfig) (*Demodulator, error) 
 		return nil, err
 	}
 
-	reader, err = stream.ConvolutionReader(reader, fftw.ThreadsafePlan, filter)
+	reader, err = stream.ConvolutionReader(reader, fftw.Plan, filter)
 	if err != nil {
 		return nil, err
 	}
