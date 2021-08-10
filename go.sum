@@ -16,8 +16,13 @@ gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b h1:h8qDotaEPuJATrMmW04NCwg7v
 gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
 hz.tools/fftw v0.0.6 h1:xuS3rHGxX62hutbbB8bU/D3tqxI8ZjsiJuq7zGpjnsU=
 hz.tools/fftw v0.0.6/go.mod h1:0VJKzw9OFm8jLzub4lv1qeGORSbGkI2ePZyNQoq2NCk=
+hz.tools/fftw v0.0.7 h1:dlGrDyplXQH1MxFY318zTZUSjmFaP1Yi8Oy7U2E/mak=
+hz.tools/fftw v0.0.7/go.mod h1:OD9JWxQJ+uBUDq7amio/juU94OgDTN6LQFATdaGv+Qg=
 hz.tools/rf v0.0.7 h1:jzIP+Q9We0B1lEZgQp7VTVAPtO/yuTwhNRxkCG/lWOg=
 hz.tools/rf v0.0.7/go.mod h1:wTwZ2xbRvTgaa5S7y34NPMg3YY5hYTlhpBbPlWYcMSE=
 hz.tools/sdr v0.0.0-20210302051927-c160b34a77ff/go.mod h1:e2HpOZNGv+DJCV9QxTwT/1vi+KoyX996WN3wx46WnB8=
 hz.tools/sdr v0.0.0-20210310010859-bcc7d6233524 h1:djy5y3XAX5YuxVEXE32RLcWLkxZoBRix2fVlk4mZ2Dc=
 hz.tools/sdr v0.0.0-20210310010859-bcc7d6233524/go.mod h1:YX83xRT5DRUT/ue1zeiCfEJhiEP23m83RSdSg1IotxU=
+hz.tools/sdr v0.0.0-20210312011121-a229cbc80266/go.mod h1:YX83xRT5DRUT/ue1zeiCfEJhiEP23m83RSdSg1IotxU=
+hz.tools/sdr v0.0.0-20210724143717-d5d8ec0435a8 h1:A1P8h+FwwH8YLaoCHZ04GzJaCMThvWHhZzzXBuxGcto=
+hz.tools/sdr v0.0.0-20210724143717-d5d8ec0435a8/go.mod h1:YX83xRT5DRUT/ue1zeiCfEJhiEP23m83RSdSg1IotxU=
