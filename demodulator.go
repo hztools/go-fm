@@ -23,7 +23,6 @@ package fm
 import (
 	"math/cmplx"
 
-	"hz.tools/fftw"
 	"hz.tools/fm/internal"
 	"hz.tools/rf"
 	"hz.tools/sdr"
@@ -60,6 +59,9 @@ type DemodulatorConfig struct {
 	// Downsample will define rate to downsample the samples to bring it to
 	// a sensible audio sample rate.
 	Downsample uint
+
+	// Planner will be used to preform the FFTs used to filter the FM signal.
+	Planner fft.Planner
 }
 
 // Demodulator contains info about
@@ -118,7 +120,7 @@ func Demodulate(reader sdr.Reader, cfg DemodulatorConfig) (*Demodulator, error) 
 		return nil, err
 	}
 
-	reader, err = stream.ConvolutionReader(reader, fftw.Plan, filter)
+	reader, err = stream.ConvolutionReader(reader, cfg.Planner, filter)
 	if err != nil {
 		return nil, err
 	}
