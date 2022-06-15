@@ -60,7 +60,7 @@ type DemodulatorConfig struct {
 	// a sensible audio sample rate.
 	Downsample uint
 
-	// Planner will be used to preform the FFTs used to filter the FM signal.
+	// Planner will be used to perform the FFTs used to filter the FM signal.
 	Planner fft.Planner
 }
 

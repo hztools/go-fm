@@ -136,7 +136,7 @@ func (m *Modulator) Write(audioSamples []float32) (int, error) {
 	return fn, nil
 }
 
-// preform the actual write
+// perform the actual write
 func (m *Modulator) write(audioSamples []float32) (int, error) {
 	iqPerA := int(m.Config.IqSamplesPerAudioSample)
 
