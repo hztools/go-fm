@@ -109,25 +109,29 @@ func Demodulate(reader sdr.Reader, cfg DemodulatorConfig) (*Demodulator, error) 
 		return nil, sdr.ErrSampleFormatMismatch
 	}
 
-	filter := make([]complex64, 1024*64)
-	if err := internal.Filter(
-		filter,
-		reader.SampleRate(),
-		fft.ZeroFirst,
-		cfg.CenterFrequency,
-		cfg.Deviation,
-	); err != nil {
-		return nil, err
+	if cfg.Deviation != rf.Hz(0) {
+		filter := make([]complex64, 1024*64)
+		if err := internal.Filter(
+			filter,
+			reader.SampleRate(),
+			fft.ZeroFirst,
+			cfg.CenterFrequency,
+			cfg.Deviation,
+		); err != nil {
+			return nil, err
+		}
+
+		reader, err = stream.ConvolutionReader(reader, cfg.Planner, filter)
+		if err != nil {
+			return nil, err
+		}
 	}
 
-	reader, err = stream.ConvolutionReader(reader, cfg.Planner, filter)
-	if err != nil {
-		return nil, err
-	}
-
-	reader, err = stream.DownsampleReader(reader, cfg.Downsample)
-	if err != nil {
-		return nil, err
+	if cfg.Downsample > 0 {
+		reader, err = stream.DownsampleReader(reader, cfg.Downsample)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	return &Demodulator{
