@@ -13,7 +13,7 @@ func Filter(
 	cf rf.Hz,
 	dv rf.Hz,
 ) error {
-	bins, err := fft.BinsByRange(dst, sampleRate, order, rf.Range{cf - dv, cf + dv})
+	bins, err := fft.BinsByRange(len(dst), sampleRate, order, rf.Range{cf - dv, cf + dv})
 	if err != nil {
 		return err
 	}
