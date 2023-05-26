@@ -116,7 +116,7 @@ func (m *Modulator) SampleRate() uint {
 func (m *Modulator) Write(audioSamples []float32) (int, error) {
 	iqBufLen := len(m.iqBuffer) / int(m.Config.IqSamplesPerAudioSample)
 
-	var fn int = 0
+	var fn int
 	for i := 0; i < len(audioSamples); i += iqBufLen {
 		audioEnd := i + iqBufLen
 		if audioEnd > len(audioSamples) {
@@ -156,9 +156,9 @@ func (m *Modulator) write(audioSamples []float32) (int, error) {
 
 		for iqStep := iqStepStart; iqStep < iqStepEnd; iqStep++ {
 			var (
-				now        float64 = timeOffset / float64(m.iqSampleRate)
-				realSample float64 = math.Cos(tau*float64(m.Config.CarrierFrequency)*now + beta*audioSample)
-				imagSample float64 = math.Sin(tau*float64(m.Config.CarrierFrequency)*now + beta*audioSample)
+				now        = timeOffset / float64(m.iqSampleRate)
+				realSample = math.Cos(tau*float64(m.Config.CarrierFrequency)*now + beta*audioSample)
+				imagSample = math.Sin(tau*float64(m.Config.CarrierFrequency)*now + beta*audioSample)
 			)
 			m.iqBuffer[iqStep] = complex(float32(realSample), float32(imagSample))
 			timeOffset = (timeOffset + 1)

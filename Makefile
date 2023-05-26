@@ -27,7 +27,7 @@ check: lint
 clean:
 
 lint:
-	golint ./...
+	revive ./...
 
 .PHONY: all lint check
 
